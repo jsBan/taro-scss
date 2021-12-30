@@ -1,10 +1,15 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text,  } from "@tarojs/components"
 import { NavBar } from "../../components"
+import { AtRate } from 'taro-ui'
 
 import "./index.scss"
+import { useState } from 'react'
 
 const Index = () => {
+
+    
     const state = {
         list: [
             'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
@@ -63,7 +68,7 @@ const Index = () => {
                    face: '有面容',
                    ram: '256G'
                },
-               Star: 5
+               star: 3
            },
            {
                logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
@@ -85,10 +90,29 @@ const Index = () => {
                star: 5
            },
        ]
+       
     }
+
+    const [idx, setIdx] = useState<number>(0)
+    const [comment, setComment] = useState(state.comment)
 
     const handleChange = (val) => {
         console.log(val);
+        console.log(idx);
+        
+        state.comment.forEach((item, index) => {
+            if(index === idx) {
+                // item.star = val
+                // console.log(123213);
+                // setComment()
+                
+                
+            }
+        })
+    }
+
+    const handlerClick = (idx) => {
+        setIdx(idx)
     }
     return (
         <View className='wrapper'>
@@ -179,7 +203,7 @@ const Index = () => {
                   autoplay
                 >
                     {
-                        state.comment && state.comment.map((item, index) => (
+                       comment && comment.map((item, index) => (
                             <SwiperItem key={index}>
                                 <View className='comment-top'>
                                     <View className='user-logo'>
@@ -205,12 +229,12 @@ const Index = () => {
                                     <View className='tel-info'>
                                         {item.specs.color}{item.specs.condition} {item.specs.model}（{item.specs.size}）{item.specs.face} {item.specs.ram}
                                     </View>
-                                    <View className='tel-star'>
-                                        {/* 星级图标 */}
-                                        {/* <AtRate
+                                    <View className='tel-star' onClick={() => handlerClick(index)}>
+                                        <AtRate
                                           value={item.star}
+                                          size='15'
                                           onChange={handleChange.bind(this)}
-                                        /> */}
+                                        />
                                     </View>
                                 </View>
                             </SwiperItem>
@@ -218,6 +242,8 @@ const Index = () => {
                     }
                 </Swiper>
                 </View>
+            </View>
+            <View>
             </View>
         </View>
     )
