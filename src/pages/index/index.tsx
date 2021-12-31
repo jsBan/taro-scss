@@ -5,18 +5,19 @@ import { NavBar } from "../../components"
 import { AtRate } from 'taro-ui'
 
 import "./index.scss"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Index = () => {
-
-    
-    const state = {
-        list: [
-            'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-            'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
-            'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
-        ],
-        nav:  [
+    const [star, setStar] = useState<any>()
+    // 轮播图
+    const [list, setList] = useState([
+        'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+        'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
+        'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+    ])
+    // 导航区域
+    const [nav, setNav] = useState(
+        [
             {
             url: require("../../access/images/IPHONE.png"),
             name: "iPhone",
@@ -49,71 +50,71 @@ const Index = () => {
              url: require("../../access/images/new.png"),
              name: "新品推荐",
            },
-       ],
-       comment: [
-           {
-               logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-               user_name: 'Down',
-               commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
-               commemt_images: [
-                'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-                'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
-                'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
-               ],
-               specs: {
-                   color: '银色',
-                   condition: '99新',
-                   model:'苹果X',
-                   size: '5.8寸',
-                   face: '有面容',
-                   ram: '256G'
-               },
-               star: 3
-           },
-           {
-               logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-               user_name: '小红',
-               commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
-               commemt_images: [
-                'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-                'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
-                'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
-               ],
-               specs: {
-                   color: '红色',
-                   condition: '99新',
-                   model:'苹果X',
-                   size: '5.8寸',
-                   face: '有指纹',
-                   ram: '256G'
-               },
-               star: 5
-           },
        ]
-       
+    )
+    // 评论区域
+    const [comment, setComment] = useState(
+        [
+            {
+                logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                user_name: 'Down',
+                commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
+                commemt_images: [
+                 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                 'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
+                 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+                ],
+                specs: {
+                    color: '银色',
+                    condition: '99新',
+                    model:'苹果X',
+                    size: '5.8寸',
+                    face: '有面容',
+                    ram: '256G'
+                },
+                star: 3
+            },
+            {
+                logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                user_name: '小红',
+                commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
+                commemt_images: [
+                 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
+                 'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
+                 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+                ],
+                specs: {
+                    color: '红色',
+                    condition: '99新',
+                    model:'苹果X',
+                    size: '5.8寸',
+                    face: '有指纹',
+                    ram: '256G'
+                },
+                star: 5
+            },
+        ]
+    )
+
+    const getIndexData = () =>  {
+
     }
+    
+    // useEffect(() => {
+    //     getIndexData()
+    // },[])
+   
 
-    const [idx, setIdx] = useState<number>(0)
-    const [comment, setComment] = useState(state.comment)
-
-    const handleChange = (val) => {
-        console.log(val);
-        console.log(idx);
-        
-        state.comment.forEach((item, index) => {
-            if(index === idx) {
-                // item.star = val
-                // console.log(123213);
-                // setComment()
-                
-                
+    const handleChange = (val, idx) => {
+        comment.forEach((item, index) => {
+            if(index == idx) {
+                item.star = val
             }
         })
+        setStar(val)
     }
 
-    const handlerClick = (idx) => {
-        setIdx(idx)
-    }
+
     return (
         <View className='wrapper'>
             <NavBar />
@@ -128,7 +129,7 @@ const Index = () => {
                   autoplay
                 >
                     {
-                        state.list && state.list.map((item, index) => (
+                        list && list.map((item, index) => (
                             <SwiperItem key={index}>
                                <View className='images'>
                                     <Image className='swiper-img' src={item} mode='widthFix'></Image>
@@ -141,7 +142,7 @@ const Index = () => {
             {/* nav导航模块 */}
             <View className='nav'> 
             {
-                state.nav.map((item, index) => (
+                nav && nav.map((item, index) => (
                     <View key={index} className='nav-info'>
                         <View className='nav-image'>
                             <Image src={item.url}></Image>
@@ -165,7 +166,7 @@ const Index = () => {
                             </View>
                         </View>
                         <View className='bottom-right'>
-                            <Image src={state.nav[0].url}></Image>
+                            <Image src={nav[0].url}></Image>
                         </View>
                     </View>
                 </View>
@@ -174,7 +175,7 @@ const Index = () => {
                     <View className='right-center'>还可以领取5%的红包</View>
                     <View className='right-bottom'>
                         <View className='bottom-left'>
-                            <Image src={state.nav[0].url}></Image>
+                            <Image src={nav[0].url}></Image>
                         </View>
                         <View className='bottom-right'>
                             <View>本机iPhone xs max</View>
@@ -229,11 +230,11 @@ const Index = () => {
                                     <View className='tel-info'>
                                         {item.specs.color}{item.specs.condition} {item.specs.model}（{item.specs.size}）{item.specs.face} {item.specs.ram}
                                     </View>
-                                    <View className='tel-star' onClick={() => handlerClick(index)}>
+                                    <View className='tel-star'>
                                         <AtRate
                                           value={item.star}
                                           size='15'
-                                          onChange={handleChange.bind(this)}
+                                          onChange={(e) => handleChange(e, index)}
                                         />
                                     </View>
                                 </View>
