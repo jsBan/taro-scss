@@ -3,13 +3,15 @@
 import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text,  } from "@tarojs/components"
 import { NavBar, Card } from "../../components"
-import { AtRate, AtTabs, AtTabsPane } from 'taro-ui'
+import { AtRate, AtTabs, AtTabsPane, AtToast  } from 'taro-ui'
 
 import "./index.scss"
 import { useState, useEffect } from 'react'
 
 const Index = () => {
     const [star, setStar] = useState<any>()
+    const [text, setText] = useState<string>()
+    const [flag, setFlag] = useState<boolean>(false)
     // 轮播图
     const [list, setList] = useState([
         'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
@@ -184,10 +186,56 @@ const Index = () => {
         setStar(val)
     }
 
+    const handleNavClick = (index) => {
+        switch (index) {
+            case 0:
+                setText('iPhone页面未开放！')
+                setFlag(true)
+                break;
+            case 1:
+                setText('安卓手机页面未开放！')
+                setFlag(true)
+                break;
+            case 2:
+                setText('平板电脑页面未开放！')
+                setFlag(true)
+                break;
+            case 3:
+                setText('电脑页面未开放！')
+                setFlag(true)
+                break;
+            case 4:
+                setText('配件页面未开放！')
+                setFlag(true)
+                break;
+            case 5:
+                setText('捡漏页面未开放！')
+                setFlag(true)
+                break;
+            case 6:
+                setText('抢优惠券页面未开放！')
+                setFlag(true)
+                break;
+            case 7:
+                setText('新品推荐页面未开放！')
+                setFlag(true)
+                break;
+        
+            default:
+                break;
+        }
+        
+    }
+
+    const handleClose =() => {
+        setFlag(false)
+    }
+
 
     return (
         <View className='wrapper'>
             <NavBar />
+            <AtToast isOpened={flag} text={text} status="error" onClose={() => handleClose}></AtToast>
             <View className='default'></View>
             {/* 轮播图 */}
             <View className='banner'>
@@ -214,7 +262,7 @@ const Index = () => {
             <View className='nav'> 
             {
                 nav && nav.map((item, index) => (
-                    <View key={index} className='nav-info'>
+                    <View key={index} className='nav-info' onClick={() => handleNavClick(index)}>
                         <View className='nav-image'>
                             <Image src={item.url}></Image>
                             <View className='desc'>{item.name}</View>
