@@ -186,7 +186,8 @@ const Index = () => {
         setStar(val)
     }
 
-    const handleNavClick = (index) => {
+    const handleNavClick = (e, index) => {
+        e.preventDefault()
         switch (index) {
             case 0:
                 setText('iPhone页面未开放！')
@@ -234,8 +235,8 @@ const Index = () => {
 
     return (
         <View className='wrapper'>
+           
             <NavBar />
-            <AtToast isOpened={flag} text={text} status="error" onClose={() => handleClose}></AtToast>
             <View className='default'></View>
             {/* 轮播图 */}
             <View className='banner'>
@@ -262,7 +263,7 @@ const Index = () => {
             <View className='nav'> 
             {
                 nav && nav.map((item, index) => (
-                    <View key={index} className='nav-info' onClick={() => handleNavClick(index)}>
+                    <View key={index} className='nav-info' onClick={(e) => handleNavClick(e, index)}>
                         <View className='nav-image'>
                             <Image src={item.url}></Image>
                             <View className='desc'>{item.name}</View>
@@ -381,6 +382,7 @@ const Index = () => {
                     </AtTabsPane>
                 </AtTabs>
             </View>
+            {/* <AtToast isOpened={flag} text={text} status="error" onClose={() => handleClose}></AtToast> */}
         </View>
     )
 }
