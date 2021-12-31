@@ -1,0 +1,106 @@
+.card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 80px;
+    .card-left {
+        flex: 1;
+        height: 100%;
+        margin-right: 10px;
+        .card-item {
+            width: 100%;
+            height: 480px;
+            // border: 1px solid #000;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            overflow: hidden;
+            padding: 24px;
+            box-sizing: border-box;
+            line-height: 55px;
+            .image {
+                width: 80%;
+                height: 200px;
+                margin: 0 auto;
+                // margin-bottom: 50px;
+                image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            
+        }
+    }
+    .card-right {
+        flex: 1;
+        height: 100%;
+        margin-left: 10px;
+        .card-item {
+            width: 100%;
+            height: 480px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            overflow: hidden;
+            padding: 24px;
+            box-sizing: border-box;
+            line-height: 55px;
+            &:first-child {
+                height: 350px;
+                padding: 0;
+                .title, .desc, .welfare, .bottom {
+                    display: none;
+                }
+                .image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .image {
+        width: 80%;
+        height: 200px;
+        margin: 0 auto;
+        margin-bottom: 60px !important;
+        image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .title {
+        font-size: 34px;
+        color: #000;
+        margin-bottom: -16px;
+        font-family:"Times New Roman",Georgia,Serif;
+    }
+    .desc {
+        color: #a4a4a4;
+        font-size: 24px;
+    }
+    .welfare {
+        color: #a4a4a4;
+        width: 110px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #a4a4a4;
+        border-radius: 20px;
+        padding: 1px;
+        font-size: 22px;
+    }
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+        .price {
+            color: #ee4640;
+            font-size: 34px;
+            font-family:"Times New Roman",Georgia,Serif;
+        }
+        .num {
+            font-family:"Times New Roman",Georgia,Serif;
+            color: #999999;
+            font-size: 30px;
+        }
+    }
+}

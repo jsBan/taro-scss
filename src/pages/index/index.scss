@@ -184,6 +184,7 @@
         margin: 0 auto;
         height:360px;
         box-sizing: border-box;
+        margin-bottom: 20px;
         .comment-desc {
             height: 60px;
             display: flex;
@@ -275,6 +276,40 @@
                     padding-top: 27px;
                 }
             }   
+        }
+    }
+    .region-desc {
+        position: absolute;
+        color: #a4a4a4;
+        text-align: center;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 99;
+        margin-top:100px;
+        white-space: nowrap;
+    }
+    .region {
+        width: 92%;
+        margin: 0 auto;
+        height: 100%;
+        position: relative;
+        .at-tabs__header {
+            background-color: #f8f8f8;
+        }
+        .at-tabs__item {
+            font-size: 32px;
+        }
+        .at-tabs__item--active {
+            width: 60px;
+            .at-tabs__item-underline {
+                width: 60px;
+                text-align: center;
+                left: 50%;
+                transform: translate(-50%);
+            }
+        }
+        .at-tabs__underline {
+            display: none;
         }
     }
 }

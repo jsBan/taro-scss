@@ -1,8 +1,9 @@
+/* eslint-disable import/first */
 /* eslint-disable @typescript-eslint/no-shadow */
 import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text,  } from "@tarojs/components"
-import { NavBar } from "../../components"
-import { AtRate } from 'taro-ui'
+import { NavBar, Card } from "../../components"
+import { AtRate, AtTabs, AtTabsPane } from 'taro-ui'
 
 import "./index.scss"
 import { useState, useEffect } from 'react'
@@ -96,10 +97,79 @@ const Index = () => {
         ]
     )
 
-    const getIndexData = () =>  {
+    // 专区
+    const [current, setCurrent] = useState(0)
+    const [tabList, setTabList] = useState( [{ title: '热销畅卖' }, { title: '捡漏专区' }])
+    const [card1, setCard1] = useState([
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone X-99新',
+            price: '1830',
+            num:'49203'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '1830',
+            num:'49203'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '1830',
+            num:'49203'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '1830',
+            num:'49203'
+        },
+    ])
+    const [card2, setCard2] = useState([
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone X-99新',
+            price: '999',
+            num:'1234'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '999',
+            num:'568'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '999',
+            num:'49203'
+        },
+        {
+            image: 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg',
+            name: 'Iphone Xs-99新',
+            price: '999',
+            num:'49203'
+        },
+    ])
 
-    }
-    
+
+    const handleClick = (value) => {
+        setCurrent(value)
+        // this.setState({
+        //   current: value
+        // })
+      }
+
+
+
+
+
+
+
+
+    // const getIndexData = () =>  {
+    // }
     // useEffect(() => {
     //     getIndexData()
     // },[])
@@ -119,6 +189,7 @@ const Index = () => {
         <View className='wrapper'>
             <NavBar />
             <View className='default'></View>
+            {/* 轮播图 */}
             <View className='banner'>
                 <Swiper
                   className='swiper-container'
@@ -196,55 +267,71 @@ const Index = () => {
                     </View>
                 </View>
                 <View className='comment-swiper'>
-                <Swiper
-                  className='swiper-container'
-                  circular
-                  indicatorColor='#999'
-                  indicatorActiveColor='#bf708f'
-                  autoplay
-                >
-                    {
-                       comment && comment.map((item, index) => (
-                            <SwiperItem key={index}>
-                                <View className='comment-top'>
-                                    <View className='user-logo'>
-                                        <Image src={item.logo}></Image>
-                                    </View>
-                                    <View className='comment-info'>
-                                        <View className='comment-name'>
-                                            {item.user_name}
+                    <Swiper
+                      className='swiper-container'
+                      circular
+                      indicatorColor='#999'
+                      indicatorActiveColor='#bf708f'
+                      autoplay
+                    >
+                        {
+                        comment && comment.map((item, index) => (
+                                <SwiperItem key={index}>
+                                    <View className='comment-top'>
+                                        <View className='user-logo'>
+                                            <Image src={item.logo}></Image>
                                         </View>
-                                        <View className='comment-desc'>
-                                            <Text className='desc'>{item.commemt_desc}</Text> <Text className='at-icon at-icon-chevron-down'></Text>
+                                        <View className='comment-info'>
+                                            <View className='comment-name'>
+                                                {item.user_name}
+                                            </View>
+                                            <View className='comment-desc'>
+                                                <Text className='desc'>{item.commemt_desc}</Text> <Text className='at-icon at-icon-chevron-down'></Text>
+                                            </View>
+                                            <View className='comment-images' >
+                                            {
+                                                item.commemt_images.map((url, idx) => (
+                                                        <Image key={idx} src={url} />
+                                                ))
+                                            }
+                                            </View>
                                         </View>
-                                        <View className='comment-images' >
-                                           {
-                                               item.commemt_images.map((url, idx) => (
-                                                    <Image key={idx} src={url} />
-                                               ))
-                                           }
+                                    </View>
+                                    <View className='comment-bottom'>
+                                        <View className='tel-info'>
+                                            {item.specs.color}{item.specs.condition} {item.specs.model}（{item.specs.size}）{item.specs.face} {item.specs.ram}
+                                        </View>
+                                        <View className='tel-star'>
+                                            <AtRate
+                                              value={item.star}
+                                              size='15'
+                                              onChange={(e) => handleChange(e, index)}
+                                            />
                                         </View>
                                     </View>
-                                </View>
-                                <View className='comment-bottom'>
-                                    <View className='tel-info'>
-                                        {item.specs.color}{item.specs.condition} {item.specs.model}（{item.specs.size}）{item.specs.face} {item.specs.ram}
-                                    </View>
-                                    <View className='tel-star'>
-                                        <AtRate
-                                          value={item.star}
-                                          size='15'
-                                          onChange={(e) => handleChange(e, index)}
-                                        />
-                                    </View>
-                                </View>
-                            </SwiperItem>
-                        ))
-                    }
-                </Swiper>
+                                </SwiperItem>
+                            ))
+                        }
+                    </Swiper>
                 </View>
             </View>
             <View>
+            </View>
+            {/* 专区 */}
+            <View className="region-desc">官方直营 | 只做原装正品二手机</View>
+            <View className='region'>
+                <AtTabs current={current} tabList={tabList} onClick={handleClick.bind(this)} swipeable>
+                    <AtTabsPane current={current} index={0} >
+                        <View>
+                            <Card card={card1} />
+                        </View>
+                    </AtTabsPane>
+                    <AtTabsPane current={current} index={1}>
+                        <View>
+                            <Card card={card2} />
+                        </View>
+                    </AtTabsPane>
+                </AtTabs>
             </View>
         </View>
     )
