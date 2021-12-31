@@ -150,8 +150,6 @@ const  Category = () =>  {
     }
 
     const CategoryCard = (props) => {
-        console.log(props);
-        
         return (
             <View className="category-card">
                 <View className="card-top">
@@ -183,7 +181,7 @@ const  Category = () =>  {
                               onClick={handleClick2.bind(this)}
                             >
                             <AtTabsPane tabDirection='vertical' current={current2} index={0}>
-                                <View style='height:100vh;' className="image">
+                                <View  className="image">
                                     <Image src={url}></Image>
                                 </View>
                                 <View className="title">
@@ -198,87 +196,63 @@ const  Category = () =>  {
                                 </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={1}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实用配件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={2}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;华为&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={3}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;荣耀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={4}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小米&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={5}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;红米&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={6}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPPO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={7}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIVO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={8}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一加&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={9}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={10}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全新安卓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={11}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;全新苹果&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={12}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;精品配件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
-                                </View>
                                 </View>
                             </AtTabsPane>
                             </AtTabs>
@@ -310,24 +284,18 @@ const  Category = () =>  {
                                 </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current3} index={1}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苹果电脑&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current3} index={2}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;苹果一体机&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
                                 </View>
-                                </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current3} index={3}>
-                                <View style='font-size:18px;text-align:center;height:100vh;'>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安卓平板&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
-                                </View>
                                 </View>
                             </AtTabsPane>
                             </AtTabs>

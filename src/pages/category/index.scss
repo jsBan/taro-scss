@@ -15,7 +15,6 @@
         background-color: #f6f6f6;
     }
     .category-info {
-        height: 100%;
         background-color: #f6f6f6;
         .category-nav {
             margin-top: 20px;
@@ -30,13 +29,15 @@
                 color: #000;
             }
             .phone-nav {
-                height: 100vh;
                 line-height: 80px;
                 .at-tabs__item {
                     color: #000;
                 }
                 .at-tabs__item--active {
                     background-color: #f6f6f6;
+                }
+                .at-tabs-pane--active {
+                    padding-bottom: 224px;
                 }
                 .at-tabs--scroll  {
                     scroll-view {
@@ -64,13 +65,11 @@
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: space-between;
-                    
                     padding: 24px;
                     .category-card {
-                        width: 28%;
+                        width: 31%;
                         height: 230px;
-                        margin-right: 24px;
-                        margin-bottom: 24px;
+                        margin-bottom: 18px;
                         background-color: #fff;
                         border-radius: 12px;
                         overflow: hidden;
