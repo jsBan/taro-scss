@@ -7,8 +7,8 @@ import "./index.scss"
 
 export default function NavBar(props) {
     const style = {
-        // paddingTop: (Taro as any).$navBarMarginTop + 'px'
-        paddingTop: '48px'
+        paddingTop: (Taro as any).$navBarMarginTop + 'px'
+        // paddingTop: '48px'
     }
     return (
         <View className='navbarWrap' style={style}>

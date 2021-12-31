@@ -6,7 +6,7 @@ import './app.scss'
 const  App = (props) =>  {
   useEffect(() => {
     Taro.getSystemInfo({}).then((res) => {
-      (Taro as any).$navBarMarginTop = res.statusBarHeight || 0
+      (Taro as any).$navBarMarginTop = res.statusBarHeight + 4 || 0
     })
   })
   

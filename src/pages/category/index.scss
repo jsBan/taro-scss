@@ -1,0 +1,37 @@
+.category {
+    background-color: #fff;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    .search {
+        color: #727272;
+        width: 65%;
+        height: 60px;
+        line-height: 60px;
+        border-radius: 24px;
+        font-size: 24px;
+        padding-left: 24px;
+        margin-left: 24px;
+        background-color: #f6f6f6;
+    }
+    .category-info {
+        height: 100%;
+        background-color: #f6f6f6;
+        .category-nav {
+            margin-top: 20px;
+            border-top: 2px solid #f6f6f6;
+            .phone-nav {
+                height: 100vh;
+                line-height: 80px;
+                .at-tabs--scroll  {
+                    scroll-view {
+                        padding-bottom: 254px;
+                        ::-webkit-scrollbar {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

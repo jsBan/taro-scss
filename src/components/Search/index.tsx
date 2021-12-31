@@ -1,14 +1,16 @@
 // eslint-disable-next-line no-unused-vars
 import Taro from '@tarojs/taro'
-import { View, Image, Text } from "@tarojs/components"
+import { View, Text } from "@tarojs/components"
 import "./index.scss"
 
 
-export default function NavBar(props) {
+export default function Search(props) {
+    const style = {
+        paddingTop: (Taro as any).$navBarMarginTop + 'px'
+    }
     return (
-        <View className='navbarWrap'>
-            <View className='navbar'>
-            </View>
+        <View className='search' style={style}>
+            dadasdasd
         </View>
     )
 }

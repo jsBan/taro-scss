@@ -6,5 +6,5 @@ import Card from "./Card";
 export {
     NavBar,
     Search,
-    Card
+    Card,
 }
