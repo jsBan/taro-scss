@@ -184,6 +184,7 @@ const Index = () => {
         setStar(val)
     }
     const handleNavClick = (index) => {
+        console.log(index);
         switch (index) {
             case 0:
                 Taro.atMessage({

@@ -64,7 +64,7 @@ export default function Card(props) {
                             ￥{item.price}
                         </View>
                         <View className="num">
-                            {item.num}件已售
+                            {item.num} <Text className="yishou"> 件已售</Text>
                         </View>
                     </View>
                 </View>
