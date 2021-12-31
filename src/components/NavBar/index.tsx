@@ -3,15 +3,22 @@ import Taro from '@tarojs/taro'
 import { View, Image,Text } from "@tarojs/components"
 import Search  from "./components/Search/index"
 import "./index.scss"
+import { useEffect,useState } from 'react'
 
 
 export default function NavBar(props) {
-    const style = {
-        paddingTop: (Taro as any).$navBarMarginTop + 'px'
-        // paddingTop: '48px'
-    }
+    // const style = {
+    //     paddingTop: (Taro as any).$navBarMarginTop + 'px'
+    //     // paddingTop: '48px'
+    // }
+    const [style, setStyle] = useState<any>()
+    useEffect(() => {
+        setStyle((Taro as any).$navBarMarginTop + 'px')
+        console.log(style);
+        
+    })
     return (
-        <View className='navbarWrap' style={style}>
+        <View className='navbarWrap' style={`paddingTop: ${style}`}>
             <View className='warpper'>
                 <View className='navbar'>
                     <View className='logo'>
