@@ -20,7 +20,8 @@ const Car = () => {
     return (
         <View className="card">
             <NavBar visableLogo={visableLogo} title={title} noSearch={noSearch}></NavBar>
-            购物车
+            <View className="card-info">购物车</View>
+            
         </View>
     )
 }
