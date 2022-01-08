@@ -7,7 +7,7 @@ import { useEffect,useState } from 'react'
 
 
 export default function NavBar(props) {
-    const { visableLogo, title } = props
+    const { visableLogo, title, noSearch } = props
     // const style = {
     //     paddingTop: (Taro as any).$navBarMarginTop + 'px'
     //     // paddingTop: '48px'
@@ -34,8 +34,10 @@ export default function NavBar(props) {
                         <View className='gray'>原装<Text className='spot'>.</Text>正品<Text className='spot'>.</Text>一年质保</View>
                     </View>
                 </View>
-                <View onClick={handlerSearch}>
-                <Search  />
+                <View onClick={handlerSearch} className={!noSearch ? 'no_desc': 'no_desc'}>
+                    <View className='no_desc'>
+                        <Search  />
+                    </View>
                 </View>
             </View>
         </View>
