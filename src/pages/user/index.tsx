@@ -1,13 +1,23 @@
 import { Component } from 'react'
 import { View } from '@tarojs/components'
+import { useEffect, useState } from "react"
+import { NavBar, Card } from "../../components"
+import "./index.scss"
 
+const User = () => {
+    const [visableLogo, setVisableLogo] = useState(true)
+    const [noSearch, setNoSearch] = useState(true)
+        const [title, setTitle] = useState('个人中心')
 
-
-export default class Category extends Component {
-
-    render() {
         return (
-            <View>个人中心页面</View>
+            <View className="user">
+                 <NavBar visableLogo={visableLogo} title={title} noSearch={noSearch}></NavBar>
+                 <View className="user-info">
+                 个人中心
+                 </View>
+            
+            </View>
         )
-    }
 } 
+
+export default User
