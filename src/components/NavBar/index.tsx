@@ -7,6 +7,7 @@ import { useEffect,useState } from 'react'
 
 
 export default function NavBar(props) {
+    const { visableLogo, title } = props
     // const style = {
     //     paddingTop: (Taro as any).$navBarMarginTop + 'px'
     //     // paddingTop: '48px'
@@ -25,9 +26,10 @@ export default function NavBar(props) {
             <View className='warpper'>
                 <View className='navbar'>
                     <View className='logo'>
-                        <Image src='https://storage.360buyimg.com/mtd/home/111543234387022.jpg'  />
+                        <Image className={!visableLogo ? '': 'no_desc'} src='https://storage.360buyimg.com/mtd/home/111543234387022.jpg'  />
                     </View>
-                    <View className='desc'>
+                    <View className="title">{title}</View>
+                    <View className={!visableLogo ? 'desc': 'no_desc'}>
                         <View className='black'>只做原装正品二手机</View> 
                         <View className='gray'>原装<Text className='spot'>.</Text>正品<Text className='spot'>.</Text>一年质保</View>
                     </View>
