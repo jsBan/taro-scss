@@ -15,8 +15,11 @@ export default function NavBar(props) {
     useEffect(() => {
         setStyle((Taro as any).$navBarMarginTop + 'px')
         console.log(style);
-        
     })
+
+    const handlerSearch = () => {
+        Taro.navigateTo({ url: '/pages/search/index' })
+    }
     return (
         <View className='navbarWrap' style={`paddingTop: ${style}`}>
             <View className='warpper'>
@@ -29,8 +32,8 @@ export default function NavBar(props) {
                         <View className='gray'>原装<Text className='spot'>.</Text>正品<Text className='spot'>.</Text>一年质保</View>
                     </View>
                 </View>
-                <View>
-                <Search />
+                <View onClick={handlerSearch}>
+                <Search  />
                 </View>
             </View>
         </View>

@@ -1,15 +1,23 @@
 /* eslint-disable import/first */
 /* eslint-disable @typescript-eslint/no-shadow */
 import Taro from '@tarojs/taro'
-import { View, Swiper, SwiperItem, Image, Text,  } from "@tarojs/components"
+import { View, Swiper, SwiperItem, Image, Text, Button } from "@tarojs/components"
 import { NavBar, Card } from "../../components"
-import { AtRate, AtTabs, AtTabsPane, AtToast, AtMessage  } from 'taro-ui'
+import { AtRate, AtTabs, AtTabsPane, AtModal, AtMessage, AtModalHeader, AtModalContent, AtModalAction  } from 'taro-ui'
 
 import "./index.scss"
 import { useState, useEffect } from 'react'
 
 const Index = () => {
     const [star, setStar] = useState<any>()
+    /**
+     * 评论弹框状态
+     */
+    const [commentFlag, setCommentFlag] = useState(false)
+    /**
+     * 评论弹框内容
+     */
+    const [commintSpec, setCommitSpec] = useState('')
     // 轮播图
     const [list, setList] = useState([
         'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
@@ -78,11 +86,11 @@ const Index = () => {
             {
                 logo: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
                 user_name: '小红',
-                commemt_desc: '外观很新,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
+                commemt_desc: '手机很不错，很棒,手机很好,手机成色很新,像素不错,像素不错,没有刮痕,性能好,屏幕清晰,正品,客服态度很好,好用,拍照超级好看等等',
                 commemt_images: [
-                 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
-                 'https://storage.360buyimg.com/mtd/home/221543234387016.jpg',
-                 'https://storage.360buyimg.com/mtd/home/331543234387025.jpg'
+                 'https://img0.baidu.com/it/u=2866200409,4132400541&fm=253&fmt=auto&app=120&f=JPEG?w=450&h=780',
+                 'https://img2.baidu.com/it/u=1814268193,3619863984&fm=253&fmt=auto&app=138&f=JPEG?w=632&h=500',
+                 'https://img0.baidu.com/it/u=2398375715,1464252733&fm=26&fmt=auto'
                 ],
                 specs: {
                     color: '红色',
@@ -184,7 +192,6 @@ const Index = () => {
         setStar(val)
     }
     const handleNavClick = (index) => {
-        console.log(index);
         switch (index) {
             case 0:
                 Taro.atMessage({
@@ -240,10 +247,43 @@ const Index = () => {
         }
         
     }
+    /**
+     * 处理评论点击
+     */
+    const handlerCommit =(idx: number) => {
+        comment.forEach((item, index) => {
+            if(index == idx) {
+                setCommitSpec(item.commemt_desc)
+            }
+        })
+        setCommentFlag(true)
+    }
+    /**
+     * 处理点击评论图片放大
+     */
+    const handlerImage = (idx: number, image_idx: number) => {
+        comment.forEach((item, index) => {
+            if(index == idx) {
+                item.commemt_images.map((items, image_index) => {
+                    if(image_idx === image_index) {
+                        Taro.previewImage({
+                            current: items, // 当前显示图片的http链接  
+                            urls: item.commemt_images // 需要预览的图片http链接列表  
+                          })
+                    }
+                })
+            }
+        })
+    }
 
     return (
         <View className='wrapper'>
             <AtMessage /> 
+            <AtModal isOpened={commentFlag} onClose={() => setCommentFlag(false)}>
+                <AtModalContent>
+                    {commintSpec}
+                </AtModalContent>
+            </AtModal>
             <NavBar />
             <View className='default'></View>
             {/* 轮播图 */}
@@ -342,13 +382,13 @@ const Index = () => {
                                             <View className='comment-name'>
                                                 {item.user_name}
                                             </View>
-                                            <View className='comment-desc'>
+                                            <View className='comment-desc' onClick={() => handlerCommit(index)}>
                                                 <Text className='desc'>{item.commemt_desc}</Text> <Text className='at-icon at-icon-chevron-down'></Text>
                                             </View>
                                             <View className='comment-images' >
                                             {
                                                 item.commemt_images.map((url, idx) => (
-                                                        <Image key={idx} src={url} />
+                                                        <Image key={idx} src={url} onClick={() => handlerImage(index, idx)} />
                                                 ))
                                             }
                                             </View>
@@ -362,8 +402,9 @@ const Index = () => {
                                             <AtRate
                                               value={item.star}
                                               size='15'
-                                              onChange={(e) => handleChange(e, index)}
                                             />
+                                              {/* 注释评论星级事件 */}
+                                              {/* onChange={(e) => handleChange(e, index)}z */}
                                         </View>
                                     </View>
                                 </SwiperItem>

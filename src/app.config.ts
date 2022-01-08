@@ -5,6 +5,7 @@ export default {
     'pages/recovery/index',
     'pages/car/index',
     'pages/user/index',
+    'pages/search/index',
   ],
   window: {
     backgroundTextStyle: 'light',

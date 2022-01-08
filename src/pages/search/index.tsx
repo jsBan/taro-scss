@@ -2,7 +2,7 @@ import { View } from '@tarojs/components'
 import { useEffect } from "react"
 
 
-const Car = () => {
+const Search = () => {
 
     useEffect(() => {
         console.log('hooks');
@@ -14,9 +14,9 @@ const Car = () => {
 
     return (
         <View>
-            购物车页面12312312
+            搜索页面12312312
         </View>
     )
 }
 
-export default Car
+export default Search

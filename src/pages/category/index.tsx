@@ -164,9 +164,13 @@ const  Category = () =>  {
         setStyle((Taro as any).$navBarMarginTop + 'px')
     },[])
 
+    const handleSearch = () => {
+        Taro.navigateTo({ url: '/pages/search/index' })
+    }
+
     return (
         <View className="category" style={`paddingTop: ${style}`}> 
-            <View className="search">搜索你想要的机型</View>
+            <View className="search" onClick={handleSearch}>搜索你想要的机型</View>
             <View className="category-info">
                 <View className="category-nav">
                 <AtTabs current={current} tabList={tabList} onClick={handleClick.bind(this)}>
@@ -198,6 +202,13 @@ const  Category = () =>  {
                             <AtTabsPane tabDirection='vertical' current={current2} index={1}>
                                 <View className="title">
                                     —&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实用配件&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—
+                                </View>
+                                <View className="card">
+                                    {
+                                        card && card.map((item, index) => (
+                                            <CategoryCard key={index} card={item} />
+                                        ))
+                                    }
                                 </View>
                             </AtTabsPane>
                             <AtTabsPane tabDirection='vertical' current={current2} index={2}>

@@ -6,8 +6,11 @@ import "./index.scss"
 // @import "~taro-ui/dist/style/components/icon.scss";
 
 const Search = () =>  {
+    const handlerSearch = () =>  {
+        console.log(123);
+    }
     return (
-        <View className='navSearch'>
+        <View className='navSearch' onClick={() => handlerSearch}>
             <View className='left'>
                 <View className='at-icon at-icon-search'></View>
             </View>
