@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs */
 module.exports = {
   env: {
     // NODE_ENV: '"development"'
@@ -7,5 +8,18 @@ module.exports = {
   defineConstants: {
   },
   mini: {},
-  h5: {}
+  h5: {},
+  weapp: {
+    module: {
+      autoprefixer:{
+        enable: true,
+      },
+      url: {
+        enable: true,
+        config: {
+          limit: 10240
+        }
+      }
+    }
+  }
 }

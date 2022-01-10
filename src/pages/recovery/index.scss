@@ -172,11 +172,124 @@
         .procedure {
             margin-top: 15px;
             height: 240px;
-            border: 1px solid #000;
             border-radius: 24px;
             background: #fff;
             padding: 24px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .procedure-title {
+                height: 40px;
+            }
+            .procedure-info {
+                flex: 1;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 12px;
+                padding-right: 12px;
+                font-size: 26px;
+                align-items:flex-end;
+                .procedure-item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    &::after {
+                        content: '>';
+                        display: table;
+                        position: absolute;
+                        z-index: 99;
+                        left: 130px;
+                        top: 30px;
+                        
+                    }
+                    &:last-child::after {
+                        display: none;
+                    }
+                }
+                image {
+                    width: 52px;
+                    height: 52px;
+                    padding-bottom: 36px;
+                }
+            }
+        }
+        .deal {
+            margin-top: 15px;
+            height: 350px;
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .deal-title {
+                height: 40px;
+                font-size: 32px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                align-items: center;
+                margin-bottom: 40px;
+                .deal-title-right {
+                    font-size: 24px;
+                    color: #aeaeae;
+                }
+            }
+            .deal-info {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .deal-info-item {
+                    height: 100px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    font-size: 24px;
+                    border-radius: 24px;
+                    padding: 24px;
+                    box-sizing: border-box;
+                    background: #f8f8f8;
+                    line-height: 4px;
+                    .deal-info-item-top,.deal-info-item-bottom {
+                        display: flex;
+                        justify-content: space-between;
+                        text {
+                            color: #c36571;
+                        } 
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        box-sizing: border-box;
+        height: 100px;
+        .modal-deal-info-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 24px;
+            background: #f8f8f8;
+            padding: 24px;
+            border-radius: 24px;
+            line-height: 44px;
+            margin-bottom: 20px;
+            .modal-deal-info-item-top,.modal-deal-info-item-bottom {
+                display: flex;
+                justify-content: space-between;
+                text {
+                    color: #c36571;
+                }
+            }
+        }
+        .at-action-sheet__body {
+            height: 600px;
+            overflow-y: auto;
+
         }
     }
 }

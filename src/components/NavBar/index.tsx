@@ -1,9 +1,10 @@
+/* eslint-disable import/first */
 // eslint-disable-next-line no-unused-vars
 import Taro from '@tarojs/taro'
 import { View, Image,Text } from "@tarojs/components"
 import Search  from "./components/Search/index"
 import "./index.scss"
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from "react"
 
 
 export default function NavBar(props) {
@@ -15,10 +16,7 @@ export default function NavBar(props) {
     const [style, setStyle] = useState<any>()
     useEffect(() => {
         setStyle((Taro as any).$navBarMarginTop + 'px')
-        console.log(style);
-        console.log(noSearch);
-        
-    })
+    },[])
 
     const handlerSearch = () => {
         Taro.navigateTo({ url: '/pages/search/index' })
