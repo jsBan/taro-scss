@@ -197,13 +197,12 @@ const Recovery = () => {
                         <View className="guarantee-info">
                             {
                                 guaranteeDatas && guaranteeDatas.map((item, index) => (
-
                                     <AtAccordion
                                       key={index}
                                       open={item.open}
                                       onClick={(e) => handlerClick(e, index)}
                                       title={item.title}
-                                      isAnimation={false}
+                                      //isAnimation={false}
                                     >
                                         <AtList hasBorder={false}>
                                             <View className="guarantee-desc">{item.desc}</View>

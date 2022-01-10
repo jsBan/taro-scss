@@ -23,6 +23,12 @@
                     "pathName": "pages/recovery/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/user/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

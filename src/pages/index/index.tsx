@@ -178,9 +178,34 @@ const Index = () => {
 
     // const getIndexData = () =>  {
     // }
-    // useEffect(() => {
-    //     getIndexData()
-    // },[])
+    useEffect(() => {
+        // Taro.getUserProfile({
+        //     lang: 'zh_CN',
+        //     desc: "获取你的昵称、头像、地区及性别",
+        //     success: response => {
+        //             console.log(response);
+        //             // const wxUserInfo = response.userInfo;
+        //             // // const { openId } = this.state;
+        //             // console.log('getUserProfile', wxUserInfo);
+        //             // Taro.setStorageSync(
+        //             // "UserInfo", {
+        //             // wxUserInfo: wxUserInfo,
+        //             // name: 123
+        //             // })
+        //             // Taro.getStorage({
+        //             // key: 'UserInfo',
+        //             // success (res) {
+        //             // console.log(' 我是缓存数据', res);
+        //             // }
+        //             // })
+        //         },
+        //         fail: () => {
+        //         //拒绝授权
+        //             console.error("您拒绝了请求");
+        //             return;
+        //         }
+        //     })
+    },[])
    
 
     const handleChange = (val, idx) => {

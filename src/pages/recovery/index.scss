@@ -20,7 +20,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 14px;
+                padding: 24px;
                 margin-right: 10px;
                 .title {
                     font-size: 32px;
@@ -55,11 +55,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 14px;
+                padding: 24px;
                 // margin-right: 20px;
                 .desc {
                     font-size: 25px;
                     text-align: right;
+                    margin-top: 5px;
                     font-family:"Times New Roman",Georgia,Serif;
                     text {
                         color: #d0524b;
@@ -84,13 +85,17 @@
             margin-top: 15px;
             height: 370px;
             padding: 14px;
-            padding-top: 22px;
+            // padding-top: 22px;
+            padding: 24px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: #fff;
             border-radius: 24px;
+            .arrondi-title {
+                font-size: 32px;
+            }
             .arrondi-info {
                 display: flex;
                 height: 150px;
@@ -179,6 +184,8 @@
             justify-content: space-between;
             .procedure-title {
                 height: 40px;
+                font-size: 32px;
+                font-family:"Times New Roman",Georgia,Serif;
             }
             .procedure-info {
                 flex: 1;
@@ -231,6 +238,7 @@
                 align-items: center;
                 align-items: center;
                 margin-bottom: 40px;
+                font-family:"Times New Roman",Georgia,Serif;
                 .deal-title-right {
                     font-size: 24px;
                     color: #aeaeae;
@@ -275,6 +283,7 @@
         border-radius: 24px;
         .guarantee-title {
             height: 40px;
+            font-size: 32px;
         }
         .at-accordion__info {
             font-size: 24px;
