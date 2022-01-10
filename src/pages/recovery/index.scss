@@ -2,8 +2,6 @@
     background-color: #f8f8f8;
     height: 100%;
     margin-top: 270px;
-    // padding-bottom: 220px;
-    
     .line {
         height: 1px;
     }
@@ -264,6 +262,29 @@
                 }
             }
         }
+    }
+    .guarantee {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #fff;
+        padding: 24px;
+        box-sizing: border-box;
+        margin-top: 15px;
+        height: 700px;
+        border-radius: 24px;
+        .guarantee-title {
+            height: 40px;
+        }
+        .at-accordion__info {
+            font-size: 24px;
+        }
+        .guarantee-desc {
+            font-size: 24px;
+            padding-left: 24px;
+            margin-top: 12px;
+        }
+
     }
     .footer {
         box-sizing: border-box;

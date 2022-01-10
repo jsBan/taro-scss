@@ -1,13 +1,14 @@
+/* eslint-disable import/first */
 import { View, Text, Image, Swiper, SwiperItem,  } from '@tarojs/components'
 import { useState, useEffect } from 'react'
 import { NavBar } from "../../components"
-import  {formatDate, unix}  from "../../uatils/index"
-import { AtActionSheet, AtActionSheetItem } from "taro-ui"
+import  {formatDate}  from "../../uatils/index"
+import { AtActionSheet, AtActionSheetItem, AtAccordion, AtList,AtListItem } from "taro-ui"
 import * as dayjs from 'dayjs'
 import duration from "dayjs/plugin/duration"
 import "dayjs/locale/zh-cn"
 
-import { recoveryModalData } from "../../mock"
+import { recoveryModalData, guaranteeData } from "../../mock"
 
 import "./index.scss"
 
@@ -19,6 +20,8 @@ const Recovery = () => {
         const [visableLogo, setVisableLogo] = useState(true)
         const [title, setTitle] = useState('')
         const [modalFlag, setModalFlag] = useState(false)
+        const [guaranteeDatas, setGuaranteeData] = useState(guaranteeData)
+        const [open, setOpen] = useState(false)
         const [endTime, setEndTime] = useState<any>(10)
         const [commitList, setCommitList] = useState([
             "尾号为0140 用户的 iPad 2018 回收了 1180元",
@@ -53,6 +56,10 @@ const Recovery = () => {
         const handlerClose = () => {
             setModalFlag(false)
         }
+
+        const handlerClick =(e, index) => {
+            guaranteeDatas[index].open = e
+        } 
         return (
             <View className="recovery">
                 <NavBar visableLogo={visableLogo} title={title} />
@@ -185,8 +192,26 @@ const Recovery = () => {
                         </View>
                     </View>
                     {/* 平台保障 */}
-                    <View className="guarantee ">
+                    <View className="guarantee">
                         <View className="guarantee-title">平台保障</View>
+                        <View className="guarantee-info">
+                            {
+                                guaranteeDatas && guaranteeDatas.map((item, index) => (
+
+                                    <AtAccordion
+                                      key={index}
+                                      open={item.open}
+                                      onClick={(e) => handlerClick(e, index)}
+                                      title={item.title}
+                                      isAnimation={false}
+                                    >
+                                        <AtList hasBorder={false}>
+                                            <View className="guarantee-desc">{item.desc}</View>
+                                        </AtList>
+                                    </AtAccordion>
+                                ))
+                            }
+                        </View>
                     </View>
                 </View>
                 <View className="footer">
