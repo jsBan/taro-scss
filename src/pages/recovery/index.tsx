@@ -1,9 +1,10 @@
 /* eslint-disable import/first */
+import Taro from '@tarojs/taro'
 import { View, Text, Image, Swiper, SwiperItem,  } from '@tarojs/components'
 import { useState, useEffect } from 'react'
 import { NavBar } from "../../components"
 import  {formatDate}  from "../../uatils/index"
-import { AtActionSheet, AtActionSheetItem, AtAccordion, AtList,AtListItem } from "taro-ui"
+import { AtActionSheet, AtActionSheetItem, AtAccordion, AtList, AtListItem, AtCountdown, AtSwipeAction   } from "taro-ui"
 import * as dayjs from 'dayjs'
 import duration from "dayjs/plugin/duration"
 import "dayjs/locale/zh-cn"
@@ -37,6 +38,14 @@ const Recovery = () => {
             const minutes = diffTime.minutes(); //分钟
             const seconds = diffTime.seconds(); //秒
             setDate(`${hours}:${minutes}:${seconds}`)
+        }
+
+        const onTimeUp =(e)=> {
+            Taro.showToast({
+                title: '时间到',
+                icon: 'success',
+                duration: 30000
+              })
         }
 
         useEffect(() => {
@@ -116,7 +125,11 @@ const Recovery = () => {
                                     加价红包活动
                                 </View>
                                 <View className="arrondi-center-right">
-                                    {date}后结束
+                                    <AtCountdown
+                                      format={{ hours: ':', minutes: ':', seconds: '' }}
+                                      seconds={2000}
+                                      onTimeUp={(e) => onTimeUp(e)}
+                                    />后结束
                                 </View>
                         </View>
                         <View className="arrondi-airing">
