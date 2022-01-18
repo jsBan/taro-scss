@@ -4,6 +4,9 @@
     height: 100vh;
     margin-top: 180px;
     // margin-bottom: 20px;
+    .card-info {
+        width: 100%;
+    }
     .card-item {
         display: flex;
         justify-content: space-between;
@@ -23,6 +26,9 @@
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
+                text-align: center;
+                line-height: 30px;
+                
             }
         }
         .cards-item-center {
