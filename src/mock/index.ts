@@ -96,15 +96,17 @@ const cardData = [
         price: '4799.00',
         id: 1,
         count: 1,
+        num:0
     },
     {
-        checkFlag: false,
+        checkFlag: true,
         image: 'https://storage.360buyimg.com/mtd/home/111543234387022.jpg',
         title: 'iPhone11 ProMax 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
         desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
         price: '4799.00',
         id: 2,
-        count:2,
+        count:1,
+        num:0
     },
 ]
 

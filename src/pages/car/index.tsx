@@ -11,40 +11,90 @@ const Car = () => {
 
     const [visableLogo, setVisableLogo] = useState(true)
     const [noSearch, setNoSearch] = useState(true)
+    const [checkAll, setCheckAll] = useState(true)
     const [title, setTitle] = useState('购物车')
     const [check, setCheck] = useState(['list1'])
     const [inputValue, setInputValue] = useState(1)
     const [cardDatas, setCardData] = useState(cardData)
+    const [infoCount, setInfoCount] = useState(0)
 
     useEffect(() => {
         console.log('hooks');
         
     })
-
-    const handleChange = (e) => {
-        console.log(e);
-        setCheck(e)
+    /**处理增加数量 */
+    const handleChangeNumber = async(e, id) => {
+        let nums = 0
+        await cardDatas && cardDatas.map(async (item:any, index) => {
+            if(item.id === id) {
+                await setCardData(
+                    ()=>{
+                        cardDatas[index].count = e
+                        cardDatas[index].num = e*Number(item.price) 
+                        return [...cardDatas]
+                    }
+                )
+            }
+            await (nums += item.num)
+            setInfoCount(nums)
+        })
+        
+    }
+    /**处理单项商品是否选中 */
+    const handleClickGround = async(id) => {
+        let nums = 0
+        await cardDatas && cardDatas.map(async (item, index) => {
+            if(item.id === id) {
+                await setCardData(
+                    ()=>{
+                        cardDatas[index].checkFlag = !cardDatas[index].checkFlag 
+                        return [...cardDatas]
+                    }
+                )
+            }
+            await (nums += item.num)
+             if(!item.checkFlag) {
+                nums -= item.num
+            }
+            setInfoCount(nums)
+        })
+        setCheckAll(cardDatas.every(item => item.checkFlag))
     }
 
-    const handleChangeNumber = (count, id) => {
-        
-        // cardDatas.map(item => {
-        //     if(item.id == id ) {
-        //         item.count = count +=1
-        //     }
-        // })
-        // console.log(cardDatas);
-        
+    const handlerCheckAll = async() => {
+        setCheckAll(!checkAll)
+        let nums = 0
+        await cardDatas && cardDatas.map(async (item, index) => {
+                await setCardData(
+                    ()=>{
+                        cardDatas[index].checkFlag = !checkAll
+                        return [...cardDatas]
+                    }
+                )
+                await (nums += item.num)
+                if(checkAll) {
+                    setInfoCount(0)
+                }else {
+                    setInfoCount(nums)
+                }
+        }) 
     }
+       
 
-    const handleClickGround = (id) => {
-        
+    useEffect(() => {
+        let count = 0
         console.log(123);
-        console.log(id);
-        
-        
-    }
-
+        cardDatas.forEach((item:any) => {
+            setCardData(
+                ()=>{
+                    item.num = Number(item.price) * item.count
+                    return [...cardDatas]
+                }
+            )
+            count += Number(item.price)
+            setInfoCount(count)
+        }) 
+    },[])
 
     return (
         <View className="card">
@@ -52,9 +102,9 @@ const Car = () => {
             <View className="card-info">
             {
                 cardDatas && cardDatas.map((item) => (
-                        <View className="card-item" key={item.id}>
+                    <View className="card-item" key={item.id}>
                         <View className="cards-item-left">
-                            <View className="cards-item-left-rand" onClick={() => handleClickGround(item.id)}>
+                            <View className={`cards-item-left-rand ${item.checkFlag ? 'cards-item-left-rand-style' : ''}`}   onClick={() => handleClickGround(item.id)}>
                                 <Text className='at-icon at-icon-check' style={` display: ${item.checkFlag ? 'black' : 'none'}`}></Text>
                             </View>
                         </View>
@@ -76,7 +126,7 @@ const Car = () => {
                                       step={1}
                                       type="number"
                                       value={item.count}
-                                      onChange={() => handleChangeNumber(item.count, item.id)}
+                                      onChange={(e) => handleChangeNumber(e, item.id)}
                                     />
                                 </View>
                             </View>
@@ -85,6 +135,21 @@ const Car = () => {
 
                 ))
             }
+            <View className="card-footer">
+                <View className="checkAll" onClick={handlerCheckAll}>
+                    <View className={`check ${checkAll ? 'check-color' : ''}`} >
+                        <Text className='at-icon at-icon-check' style={` display: ${checkAll ? 'black' : 'none'}`}></Text>
+                    </View>
+                    <View className="check-text" >全选</View>
+                    </View>
+                <View className="contet">
+                    <View className="del">删除</View>
+                    <View className="count">合计:
+                        <Text>￥{infoCount}</Text>
+                    </View>
+                </View>
+                <View className="settlement">结算</View>
+            </View>
             </View>
         </View>
     )
