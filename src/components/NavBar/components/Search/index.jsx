@@ -5,7 +5,8 @@ import "./index.scss"
 
 // @import "~taro-ui/dist/style/components/icon.scss";
 
-const Search = () =>  {
+const Search = (props) =>  {
+    const {goBack} = props
     const handlerSearch = () =>  {
         console.log(123);
     }
@@ -15,7 +16,8 @@ const Search = () =>  {
                 <View className='at-icon at-icon-search'></View>
             </View>
             <View className='right'>
-                <View className='at-icon at-icon-filter'></View>
+                <View  style={`display: ${!goBack ? 'black' : 'none'}`} className='at-icon at-icon-filter'></View>
+                <View style={`display: ${goBack ? 'black' : 'none'}`} className='at-icon at-icon-user'></View>
             </View>
         </View>
     )

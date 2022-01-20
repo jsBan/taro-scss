@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro'
 import { View, Swiper, SwiperItem, Image, Text, Button } from "@tarojs/components"
 import { NavBar, Card } from "../../components"
 import { AtRate, AtTabs, AtTabsPane, AtModal, AtMessage, AtModalHeader, AtModalContent, AtModalAction  } from 'taro-ui'
+// import {} from "tarojs-router"
 
 import "./index.scss"
 import { useState, useEffect } from 'react'
@@ -168,16 +169,6 @@ const Index = () => {
         //   current: value
         // })
       }
-
-
-
-
-
-
-
-
-    // const getIndexData = () =>  {
-    // }
     useEffect(() => {
         // Taro.getUserProfile({
         //     lang: 'zh_CN',
@@ -219,54 +210,45 @@ const Index = () => {
     const handleNavClick = (index) => {
         switch (index) {
             case 0:
-                Taro.atMessage({
-                    'message': 'iPhone页面未开放！',
-                    'type': 'warning',
-                  })
+                Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 1:
-                Taro.atMessage({
-                    'message': '安卓手机页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 2:
-                Taro.atMessage({
-                    'message': '平板电脑页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 3:
-                Taro.atMessage({
-                    'message': '电脑页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 4:
-                Taro.atMessage({
-                    'message': '配件页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 5:
-                Taro.atMessage({
-                    'message': '捡漏页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 6:
-                Taro.atMessage({
-                    'message': '抢优惠券页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
             case 7:
-                Taro.atMessage({
-                    'message': '新品推荐页面未开放！',
-                    'type': 'warning',
-                  })
+                 Taro.navigateTo({
+                    url: '/pages/product/index?id='+JSON.stringify(index),
+                })
                 break;
-        
             default:
                 break;
         }

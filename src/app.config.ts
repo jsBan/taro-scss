@@ -6,6 +6,7 @@ export default {
     'pages/car/index',
     'pages/user/index',
     'pages/search/index',
+    'pages/product/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -38,5 +39,6 @@ export default {
         text: '个人中心'
       },
     ]
-  }
+  },
+  
 }

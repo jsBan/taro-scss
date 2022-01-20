@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 
 
 export default function NavBar(props) {
-    const { visableLogo, title, noSearch, backGround } = props
+    const { visableLogo, title, noSearch, backGround, goBack } = props
     // const style = {
     //     paddingTop: (Taro as any).$navBarMarginTop + 'px'
     //     // paddingTop: '48px'
@@ -20,6 +20,12 @@ export default function NavBar(props) {
 
     const handlerSearch = () => {
         Taro.navigateTo({ url: '/pages/search/index' })
+    }
+
+    const handlerGoBack = () => {
+        Taro.navigateBack({
+            delta: 1 // 返回上一级页面。
+            });
     }
 
     const [userName, setUserName] = useState('')
@@ -60,6 +66,7 @@ export default function NavBar(props) {
                 <View className='navbar'>
                     <View className='logo'>
                         <Image className={!visableLogo ? '': 'no_desc'} src='https://storage.360buyimg.com/mtd/home/111543234387022.jpg'  />
+                        <Text onClick={handlerGoBack} className='at-icon at-icon-chevron-left  goback' style={`display: ${goBack ? 'black' : 'none '}`}></Text>
                     </View>
                     <View className="title"  style={` color: ${backGround ? '#fff' : ''}`}>{title}</View>
                     <View className={!visableLogo ? 'desc': 'no_desc'}>
@@ -69,7 +76,7 @@ export default function NavBar(props) {
                 </View>
                 <View onClick={handlerSearch} className={noSearch ? 'displaysearch': ''}>
                     <View className='no_desc'>
-                        <Search  />
+                        <Search goBack={goBack} />
                     </View>
                 </View>
                 <View className="user-info" style={` display: ${backGround ? 'black' : 'none'}`}>

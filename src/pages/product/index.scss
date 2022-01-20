@@ -1,0 +1,16 @@
+
+.product {
+    height: 100%;
+    margin-top: 350px;
+    box-sizing: border-box;
+    background: #f8f8f8;
+    .product-card-info {
+        margin-top: 20px;
+        position: relative;
+    }
+    .at-tabs__header {
+        position: fixed;
+        z-index: 999;
+        top: 250px;
+    }
+}

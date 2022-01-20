@@ -110,8 +110,142 @@ const cardData = [
     },
 ]
 
+// 专区数据
+/**iPhone */
+const iPhoneData = [
+    {
+        image: 'https://img1.baidu.com/it/u=1185154186,185123523&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+        title: 'iPhone11 Pro 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
+        desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
+        price: '2099.00',
+        sold: '16999',
+        supply:'190.52',
+        id: 1,
+    },
+    {
+        image: 'https://img0.baidu.com/it/u=1141637929,879804606&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=375',
+        title: 'iPhone11 ProMax 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
+        desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
+        price: '2199.00',
+        sold: '14999',
+        supply:'190.52',
+        id: 2,
+    },
+    {
+        image: 'https://img0.baidu.com/it/u=364025746,3258265225&fm=253&fmt=auto&app=120&f=JPEG?w=1060&h=500',
+        title: 'iPhone12 Pro 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
+        desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
+        price: '3299.00',
+        sold: '15999',
+        supply:'190.52',
+        id: 3,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=3460960192,2189882605&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667',
+        title: 'iPhone12 ProMax 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
+        desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
+        price: '2399.00',
+        sold: '17999',
+        supply:'190.52',
+        id: 4,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=2848109571,3312675737&fm=26&fmt=auto',
+        title: 'iPhone13 ProMax 9-99新 国行 银色256G 95新 套餐一：嗨嗨标配（精品手机）',
+        desc: '银色 256G 95新 套餐一：嗨嗨标配 （精品手机）',
+        price: '3499.00',
+        sold: '1299',
+        supply:'190.52',
+        id: 5,
+    },
+]
+/**安卓 */
+
+const AnZhuoData = [
+    {
+        image: 'https://img0.baidu.com/it/u=1017688231,2942733330&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=277',
+        title: '红米Note8 Pro 9-99新',
+        price: '890.00',
+        sold: '2356',
+        supply:'190.52',
+        id: 1,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=953931135,2652515962&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+        title: '红米Note8 9-99新',
+        price: '699.00',
+        sold: '1345',
+        supply:'190.52',
+        id: 2,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=592063751,3835863452&fm=253&fmt=auto&app=138&f=JPEG?w=646&h=500',
+        title: '红米K20 9-99新',
+        price: '3299.00',
+        sold: '929',
+        supply:'190.52',
+        id: 3,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=592063751,3835863452&fm=253&fmt=auto&app=138&f=JPEG?w=646&h=500',
+        title: '红米K20Pro 9-99新',
+        price: '1119.00',
+        sold: '1235',
+        supply:'190.52',
+        id: 4,
+    },
+]
+
+/**平板电脑 */
+const iPadData = [
+    {
+        image: 'https://img2.baidu.com/it/u=4135461568,2981654199&fm=253&fmt=auto&app=138&f=JPEG?w=250&h=250',
+        title: '【全新】iPad mini 6',
+        price: '3799.00',
+        sold: '3651',
+        supply:'358.52',
+        id: 1,
+    },
+    {
+        image: 'https://img1.baidu.com/it/u=1679353074,4151763581&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+        title: '9-99新 苹果 iPad 2018款学习机',
+        price: '1949.00',
+        sold: '1452',
+        supply:'190.52',
+        id: 2,
+    },
+    {
+        image: 'https://img2.baidu.com/it/u=1986791057,2812178046&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+        title: '9-99新 2019年iPad 10.2英寸',
+        price: '2299.00',
+        sold: '929',
+        supply:'217.52',
+        id: 3,
+    },
+    {
+        image: 'https://img2.baidu.com/it/u=1986791057,2812178046&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+        title: '9-99新 小米平板4.80英寸',
+        price: '760.00',
+        sold: '1235',
+        supply:'71.52',
+        id: 4,
+    },
+    {
+        image: 'https://img2.baidu.com/it/u=1986791057,2812178046&fm=253&fmt=auto&app=138&f=JPEG?w=667&h=500',
+        title: '9-99新 小米平板4.80英寸',
+        price: '760.00',
+        sold: '1235',
+        supply:'71.52',
+        id: 4,
+    },
+]
+
+
 export {
     recoveryModalData,
     guaranteeData,
-    cardData
+    cardData,
+    iPhoneData,
+    AnZhuoData,
+    iPadData
 }

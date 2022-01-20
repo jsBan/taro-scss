@@ -1,8 +1,8 @@
 import Taro from '@tarojs/taro'
 import { View, Image , Text} from '@tarojs/components'
 import { useEffect, useState } from "react"
-import { NavBar, Card } from "../../components"
-import { AtCheckbox, AtInputNumber, AtSwipeAction,AtList,AtListItem   } from 'taro-ui'
+import { NavBar} from "../../components"
+import { AtInputNumber, AtSwipeAction, AtList, AtListItem  } from 'taro-ui'
 import './index.scss'
 import {  cardData } from "../../mock"
 
@@ -13,8 +13,6 @@ const Car = () => {
     const [noSearch, setNoSearch] = useState(true)
     const [checkAll, setCheckAll] = useState(true)
     const [title, setTitle] = useState('购物车')
-    const [check, setCheck] = useState(['list1'])
-    const [inputValue, setInputValue] = useState(1)
     const [cardDatas, setCardData] = useState(cardData)
     const [infoCount, setInfoCount] = useState(0)
 
