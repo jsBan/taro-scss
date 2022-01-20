@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { View, Image , Text} from '@tarojs/components'
 import { useEffect, useState } from "react"
 import { NavBar, Card } from "../../components"
-import { AtCheckbox, AtInputNumber, AtSwipeAction  } from 'taro-ui'
+import { AtCheckbox, AtInputNumber, AtSwipeAction,AtList,AtListItem   } from 'taro-ui'
 import './index.scss'
 import {  cardData } from "../../mock"
 
@@ -79,6 +79,22 @@ const Car = () => {
                 }
         }) 
     }
+
+    // 处理滑动删除操作
+    const handleDelClick = async(id) => {
+        await cardDatas && cardDatas.map(async (item, index) => {
+            if(item.id === id) {
+                await setCardData(
+                    ()=>{
+                        cardDatas.splice(index, 1)
+                        return [...cardDatas]
+                    }
+                )
+                setInfoCount(infoCount -item.num)
+            }
+            
+        })
+    }
        
 
     useEffect(() => {
@@ -102,37 +118,46 @@ const Car = () => {
             <View className="card-info">
             {
                 cardDatas && cardDatas.map((item) => (
-                    <View className="card-item" key={item.id}>
-                        <View className="cards-item-left">
-                            <View className={`cards-item-left-rand ${item.checkFlag ? 'cards-item-left-rand-style' : ''}`}   onClick={() => handleClickGround(item.id)}>
-                                <Text className='at-icon at-icon-check' style={` display: ${item.checkFlag ? 'black' : 'none'}`}></Text>
+                    <AtSwipeAction onClick={() => handleDelClick(item.id)} key={item.id} maxDistance={50} areaWidth={420} isOpened={false} options={[
+                        {
+                            text: '删除',
+                            style: {
+                            backgroundColor: '#FF4949'
+                            }
+                        }
+                    ]}
+                    >
+                         <View className="card-item" >
+                            <View className="cards-item-left">
+                                <View className={`cards-item-left-rand ${item.checkFlag ? 'cards-item-left-rand-style' : ''}`}   onClick={() => handleClickGround(item.id)}>
+                                    <Text className='at-icon at-icon-check' style={` display: ${item.checkFlag ? 'black' : 'none'}`}></Text>
+                                </View>
                             </View>
-                        </View>
-                        <View className="cards-item-center">
-                            <Image src="https://storage.360buyimg.com/mtd/home/111543234387022.jpg"></Image>
-                        </View>
-                        <View className="cards-item-right">
-                            <View className="cards-item-right-top">
-                                <View className="cards-item-right-top-desc">{item.title}</View>
+                            <View className="cards-item-center">
+                                <Image src="https://storage.360buyimg.com/mtd/home/111543234387022.jpg"></Image>
                             </View>
-                            <View className="cards-item-right-center">
-                                <View className="cards-item-right-center-desc">{item.desc}</View>
-                            </View>
-                            <View className="cards-item-right-bottom">
-                                <View className="cards-item-right-bottom-left">￥{item.price}</View>
-                                <View className="cards-item-right-bottom-right">
-                                    <AtInputNumber
-                                      min={1}
-                                      step={1}
-                                      type="number"
-                                      value={item.count}
-                                      onChange={(e) => handleChangeNumber(e, item.id)}
-                                    />
+                            <View className="cards-item-right">
+                                <View className="cards-item-right-top">
+                                    <View className="cards-item-right-top-desc">{item.title}</View>
+                                </View>
+                                <View className="cards-item-right-center">
+                                    <View className="cards-item-right-center-desc">{item.desc}</View>
+                                </View>
+                                <View className="cards-item-right-bottom">
+                                    <View className="cards-item-right-bottom-left">￥{item.price}</View>
+                                    <View className="cards-item-right-bottom-right">
+                                        <AtInputNumber
+                                          min={1}
+                                          step={1}
+                                          type="number"
+                                          value={item.count}
+                                          onChange={(e) => handleChangeNumber(e, item.id)}
+                                        />
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                    </View>
-
+                    </AtSwipeAction>
                 ))
             }
             <View className="card-footer">
