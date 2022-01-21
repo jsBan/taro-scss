@@ -48,6 +48,13 @@ const Product = (options) => {
         }
     }
 
+    const handlerCLickDetail = (id) =>{
+        Taro.navigateTo({
+            url: '/pages/product/detail/index?id='+JSON.stringify(id),
+        })
+    }
+    
+
     useEffect(() =>{
         for (let index = 0; index <=7; index++) {
             switch (goryId) {
@@ -80,7 +87,6 @@ const Product = (options) => {
             }   
         }
         setGoBack(true)
-        
     },[])
     return (
         <View className="product">
@@ -89,7 +95,7 @@ const Product = (options) => {
                 <AtTabs current={current} tabList={tabList} onClick={(e) => handleClick(e)}>
                     <AtTabsPane current={current} index={0} >
                         <View className="product-card-info">
-                            <ProductCard card={productDatas} />
+                            <ProductCard card={productDatas} clickDetail={handlerCLickDetail} />
                         </View>
                     </AtTabsPane>
                     <AtTabsPane current={current} index={1}>

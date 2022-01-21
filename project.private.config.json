@@ -53,6 +53,12 @@
                     "pathName": "pages/index/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/product/detail/index",
+                    "query": "id=1",
+                    "scene": null
                 }
             ]
         }

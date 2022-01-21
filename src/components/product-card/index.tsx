@@ -5,14 +5,14 @@ import { useEffect, useState } from 'react'
 
 
 export default function ProductCard(props) {
+    const {clickDetail} = props
 
     const [cardList, setCardList] = useState(props.card)
 
     useEffect(() => {
-        console.log(cardList);
+        // console.log(cardList);
         
     })
-
     return (
         <View className='product-card'>
             {
@@ -28,7 +28,7 @@ export default function ProductCard(props) {
                             <View className="product-card-price-right">{item.sold}件已售</View>
                         </View>
                         <View className="product-card-tips">月供仅需：{item.supply}元</View>
-                        <View className="product-card-btn">马上抢</View>
+                        <View className="product-card-btn" onClick={() => clickDetail(item.id)}>马上抢</View>
                     </View>
                 ))
             }

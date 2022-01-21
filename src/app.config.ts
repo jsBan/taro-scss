@@ -7,6 +7,7 @@ export default {
     'pages/user/index',
     'pages/search/index',
     'pages/product/index',
+    'pages/product/detail/index',
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -240,6 +240,51 @@ const iPadData = [
     },
 ]
 
+// 商品详情
+const productDetails = {
+    images: [
+        "https://img1.baidu.com/it/u=1185154186,185123523&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500",
+        "https://img1.baidu.com/it/u=2848109571,3312675737&fm=26&fmt=auto",
+        "https://img1.baidu.com/it/u=3460960192,2189882605&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=667",
+        "https://img0.baidu.com/it/u=364025746,3258265225&fm=253&fmt=auto&app=120&f=JPEG?w=1060&h=500",
+        "https://img0.baidu.com/it/u=1141637929,879804606&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=375",
+        "https://img0.baidu.com/it/u=1141637929,879804606&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=370",
+        "https://img0.baidu.com/it/u=1141637929,879804606&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=365",
+        "https://img0.baidu.com/it/u=1141637929,879804606&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=360",
+    ],
+    price: '2039.00',
+    title: 'iPhone XR 9-99新 单卡/双卡找客服',
+    couponList: [
+        {
+            price: '50',
+            full: '999',
+            start_time: '2022-01-16',
+            end_time: '2022-01-31',
+            receive: false,
+            coupon_name: '分期乐新人专享',
+            id: 1
+        },
+        {
+            price: '200',
+            full: '1999',
+            start_time: '2022-01-03',
+            end_time: '2022-01-31',
+            receive: false,
+            coupon_name: '分期乐新人专享',
+            id: 2
+        },
+        {
+            price: '20',
+            full: '999',
+            start_time: '2022-01-16',
+            end_time: '2022-01-31',
+            receive: false,
+            coupon_name: '1月新人专享券',
+            id: 3
+        },
+    ]
+}
+
 
 export {
     recoveryModalData,
@@ -247,5 +292,6 @@ export {
     cardData,
     iPhoneData,
     AnZhuoData,
-    iPadData
+    iPadData,
+    productDetails
 }
