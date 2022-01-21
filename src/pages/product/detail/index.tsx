@@ -34,6 +34,7 @@ const ProductDetail = (options) => {
     const [image, setImage] = useState(require("../../../access/images/card-info.png"))
     const [openFlag, setOpenFlag] = useState(false)
     const [toastFlag, setToastFlag] = useState(false)
+    const [skuFlag, setSkuFlag] = useState(false)
     const [productDetailss, setproductDetailss] = useState(productDetails)
 
     
@@ -78,8 +79,27 @@ const ProductDetail = (options) => {
      * 选择规格属性
      */
     const handleRelationInfo = () => {
-        console.log(123);
+        setSkuFlag(true)
         
+    }
+    /**
+     * 关闭规格属性
+     */
+    const handleRelationInfoClose = () => {
+        setSkuFlag(false)
+    }
+     /**
+     * 点击轮播图片放大
+     */
+      const handlerImage = (image_index) => {
+        productDetailss.images.forEach((item, index) => {
+            if(image_index === index) {
+                Taro.previewImage({
+                    current: item, // 当前显示图片的http链接  
+                    urls:  productDetailss.images // 需要预览的图片http链接列表  
+                  })
+            }
+        })
     }
 
     useEffect(() =>{
@@ -102,7 +122,7 @@ const ProductDetail = (options) => {
                 {
                     productDetailss && productDetailss.images.map((item, index) => (
                     <SwiperItem key={index}>
-                        <View className='images'>
+                        <View className='images' onClick={() => handlerImage(index)}>
                             <Image className='swiper-img' src={item} mode='widthFix'></Image>
                         </View>
                     </SwiperItem>
@@ -117,7 +137,7 @@ const ProductDetail = (options) => {
                         <View className="product-detail-card-info-price-bottom">券后到手价￥<Text>3599.00</Text></View>
                     </View>
                     <View className="product-detail-card-info-coupon">
-                        <View className="product-detail-card-info-coupon-left">
+                        <View className="product-detail-card-info-coupon-left"  onClick={handerClickCoupon}>
                             <Text >满999减50</Text>
                             <Text >满1999减200</Text>
                             <Text>满999减20</Text>
@@ -168,11 +188,15 @@ const ProductDetail = (options) => {
             </View>
             <View className="product-detail-relation">
                <View className="product-detail-relation-info">
-                    <View className="product-detail-relation-seleted" onClick={handleRelationInfo}>
-                        <View className="seleted-desc">
+                    <View className="product-detail-relation-seleted" >
+                        <View className="seleted-desc" onClick={handleRelationInfo}>
                             <Text>已选</Text> 黑色,64G,正常款,95新,套餐一:嗨嗨标配(精美数值)
                         </View>
-                        <View className="at-icon at-icon-chevron-right seleted-desc-right"></View>
+                        <View className="at-icon at-icon-chevron-right seleted-desc-right" onClick={handleRelationInfo}></View>
+                        <AtFloatLayout isOpened={skuFlag} title="这是个标题" onClose={handleRelationInfoClose}>
+                            这是内容区 随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写这是内容区
+                            随你怎么写这是内容区 随你怎么写这是内容区 随你怎么写
+                        </AtFloatLayout>
                     </View>
                     <View className="product-detail-relation-active">
                         <Text>活动</Text><Text className="active-tag">赠品</Text>购机送充电器套装、指环套（限二手机）
@@ -223,3 +247,4 @@ const ProductDetail = (options) => {
 } 
 
 export default ProductDetail
+// https://github.com/NervJS/taro-ui
