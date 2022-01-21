@@ -193,7 +193,31 @@ const ProductDetail = (options) => {
                     <Image src="https://img2.baidu.com/it/u=2302947820,3934982105&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=1526"></Image>
                 </View>
             </View>
-            {/* <View className=""></View> */}
+            <View className="product-detail-shopping">
+                <View className="product-detail-shopping-top">
+                    <View className="product-detail-shopping-left">
+                        <View className="detail-shopping-left-item">
+                            <View className="detail-shopping-left-item-icon at-icon at-icon-phone"></View>
+                            <View className="detail-shopping-left-item-desc">客服</View>
+                        </View>
+                        <View className="detail-shopping-left-item">
+                            <View className="detail-shopping-left-item-icon at-icon at-icon-star"></View>
+                            <View className="detail-shopping-left-item-desc">收藏</View>
+                        </View>
+                        <View className="detail-shopping-left-item">
+                            <View className="detail-shopping-left-item-icon at-icon at-icon-shopping-cart"></View>
+                            <View className="detail-shopping-left-item-desc">购物车</View>
+                        </View>
+                    </View>
+                    <View className="product-detail-shopping-right">
+                        <View className="product-detail-shopping-right-card">加入购物车</View>
+                        <View className="product-detail-shopping-right-buy">立即购买</View>
+                    </View>
+                </View>
+                <View className="product-detail-shopping-bottom">
+                    {/* 下 */}
+                </View>
+            </View>
         </View>
     )
 } 
